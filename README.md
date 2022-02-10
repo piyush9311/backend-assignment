@@ -17,7 +17,7 @@ We would like you to create the backend for an invoicing app. The APIs it should
 
 - [x] Add a due date to an invoice
 - [ ] View late invoices, or even better, alert when an invoice is late
-- [ ] Tests
+- [x] Tests
 - [x] API Documentation
 - [x] Data Validation
 
