@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const invoiceSchema = new mongoose.Schema({
-    timestamp: {
+    dueDate: {
         type: Date,
         default: Date.now()
     },

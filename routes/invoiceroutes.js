@@ -14,6 +14,7 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
     const invoice = new Invoice({
+        dueDate: req.body.dueDate,
         hoursOfWork: req.body.hoursOfWork,
         rateOfWork: req.body.rateOfWork,
         labourNeeded: req.body.labourNeeded,
@@ -37,6 +38,9 @@ router.get("/:id", getInvoice, (req, res) => {
 
 //update individual invoice status and other details
 router.patch("/:id", getInvoice, async (req, res) => {
+    if (req.body.dueDate != null) {
+        res.invoice.dueDate = req.body.dueDate
+    }
     if (req.body.hoursOfWork != null) {
         res.invoice.hoursOfWork = req.body.hoursOfWork
     }
