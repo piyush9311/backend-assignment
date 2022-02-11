@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const Invoice = require("../models/Invoice")
-
+const nodemailer = require("nodemailer")
 const router = Router()
 
 router.get("/", async (req, res) => {
@@ -34,6 +34,34 @@ router.post("/", async (req, res) => {
 //Get details of individual invoice
 router.get("/:id", getInvoice, (req, res) => {
     res.status(200).json(res.invoice)
+})
+
+router.get("/mail/:id", getInvoice, (req, res) => {
+    const temp = JSON.stringify(res.invoice)
+    //console.log(temp)
+    res.status(200).json(res.invoice)
+    // var transporter = nodemailer.createTransport({
+    //     service: 'gmail',
+    //     auth: {
+    //         user: 'taxadda@gmail.com',
+    //         pass: '12345678'
+    //     }
+    // });
+
+    // var mailOptions = {
+    //     from: 'taxadda@gmail.com',
+    //     to: 'invoice@yahoo.com',
+    //     subject: temp.substring(46, 60),
+    //     text: 'This is regarding your invoice'
+    // };
+    // transporter.sendMail(mailOptions, function (error, info) {
+    //     if (error) {
+    //         console.log(error);
+    //     } else {
+    //         console.log('Email sent: ' + info.response);
+    //     }
+    // });
+
 })
 
 //update individual invoice status and other details
